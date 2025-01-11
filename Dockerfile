@@ -12,7 +12,7 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-ENV MONGODB_URL=mongodb+srv://dami:tNEVhS3PWgPNorAV@structize-ai-task.jt1za.mongodb.net/?retryWrites=true&w=majority&appName=structize-ai-task
+ENV MONGODB_URL='mongodb+srv://dami:tNEVhS3PWgPNorAV@structize-ai-task.jt1za.mongodb.net/?retryWrites=true&w=majority&appName=structize-ai-task''
 
 ENV FRONTEND_URL=https://structize-ai-test-frontend.fly.dev
 
