@@ -18,7 +18,7 @@ This project provides an API for computing mathematical operations on two number
 `jobService.ts`
 * Purpose: Contains the logic for processing the jobs and emitting results using Socket.io.
 * Key Functions:
-  -`processJobs()`: Processes the job queue and emits results via Socket.io.
+  - `processJobs()`: Processes the job queue and emits results via Socket.io.
   - `delay()`: Helper function to simulate processing delay.
 
 `JobModel.ts`
