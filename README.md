@@ -9,4 +9,25 @@ This project provides an API for computing mathematical operations on two number
 4. To test: `npm test`
 
 ## Project Structure
-. ├── src/ │ ├── model/ │ │ └── JobModel.ts # MongoDB model for saving computation results │ ├── types/ │ │ └── Job.ts # TypeScript types for job structure and operations │ ├── services/ │ │ └── jobService.ts # Logic for processing jobs and emitting results │ ├── app.ts # Main application file, sets up Express server │ ├── server.ts # Starts the Express server and connects to MongoDB │ └── routes/ │ └── jobRoutes.ts # Defines API endpoints ├── tests/ │ └── app.test.ts # Unit tests for the /compute endpoint ├── .env # Environment variables (e.g., MongoDB URL, FRONTEND_URL) ├── package.json # Project dependencies and scripts ├── tsconfig.json # TypeScript configuration └── README.md # Project documentation
+`app.ts`
+Purpose: Initializes and configures the Express app.
+Key Functions:
+  Sets up middleware (JSON parsing, CORS).
+  Defines the /compute endpoint.
+
+`jobService.ts`
+Purpose: Contains the logic for processing the jobs and emitting results using Socket.io.
+Key Functions:
+  `processJobs()`: Processes the job queue and emits results via Socket.io.
+  `delay()`: Helper function to simulate processing delay.
+
+`JobModel.ts`
+Purpose: Defines the MongoDB schema for storing computation results.
+Key Functions:
+  Defines a `Job` model with properties for the operation results         (`additionResult`, `subtractionResult`, etc.).
+  Saves results to the database.
+
+`jobRoutes.ts`
+Purpose: Defines the routes for handling job computations.
+Key Functions:
+  Handles the `/compute` endpoint to initiate the job processing.
