@@ -1,7 +1,7 @@
-import { Job } from '../types';
 import { io } from '../app';
 import { delay } from '../helpers/helper';
 import { JobModel } from '../model';
+import { Input, Job } from '../types';
 
 const jobs: Job[] = [
   { type: 'A + B', func: (a, b) => a + b },
@@ -10,9 +10,9 @@ const jobs: Job[] = [
   { type: 'A / B', func: (a, b) => a / b },
 ];
 
-let jobQueue: { a: number; b: number }[] = [];
+let jobQueue: Input[] = [];
 
-export const addJobToQueue = async (input: { a: number; b: number }) => {
+export const addJobToQueue = async (input: Input) => {
   jobQueue.push(input);
   if (jobQueue.length === 1) processJobs();
 };
@@ -33,8 +33,11 @@ const processJobs = async () => {
 
   try {
     for (const job of jobs) {
+
       await delay(3000);
+
       const result = job.func(input.a, input.b);
+      
       io.emit('result', { jobType: job.type, result, progress: (100 / jobs.length) });
       
       if (job.type === 'A + B') results.additionResult = result;
