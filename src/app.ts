@@ -4,19 +4,30 @@ import { Server as socketIo } from "socket.io";
 import { JobModel } from "./model";
 import { Job } from "./types";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const app = express();
 
 const server = require("http").createServer(app);
-const io = new socketIo(server, { cors: { origin: "*" } });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL || "", "http://localhost:3000"],
+  })
+);
+
+const io = new socketIo(server, {
+  cors: {
+    origin: [process.env.FRONTEND_URL || "", "http://localhost:3000"],
+  },
+});
+
 app.use(express.json());
 
 mongoose
-  .connect(
-    "mongodb+srv://dami:tNEVhS3PWgPNorAV@structize-ai-task.jt1za.mongodb.net/?retryWrites=true&w=majority&appName=structize-ai-task"
-  )
+  .connect(process.env.MONGODB_URI || "")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
