@@ -1,0 +1,1 @@
+# structize-ai-test-frontend
