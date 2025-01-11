@@ -1,6 +1,6 @@
 import { io } from '../app';
+import { JobModel } from '../database/model';
 import { delay } from '../helpers/helper';
-import { JobModel } from '../model';
 import { Input, Job } from '../types';
 
 const jobs: Job[] = [
@@ -37,7 +37,7 @@ const processJobs = async () => {
       await delay(3000);
 
       const result = job.func(input.a, input.b);
-      
+
       io.emit('result', { jobType: job.type, result, progress: (100 / jobs.length) });
       
       if (job.type === 'A + B') results.additionResult = result;
