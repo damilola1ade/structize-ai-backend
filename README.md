@@ -18,16 +18,16 @@ This project provides an API for computing mathematical operations on two number
 `jobService.ts`
 * Purpose: Contains the logic for processing the jobs and emitting results using Socket.io.
 * Key Functions:
--`processJobs()`: Processes the job queue and emits results via Socket.io.
-- `delay()`: Helper function to simulate processing delay.
+  -`processJobs()`: Processes the job queue and emits results via Socket.io.
+  - `delay()`: Helper function to simulate processing delay.
 
 `JobModel.ts`
 * Purpose: Defines the MongoDB schema for storing computation results.
 * Key Functions:
-- Defines a `Job` model with properties for the operation results         (`additionResult`, `subtractionResult`, etc.).
-- Saves results to the database.
+  - Defines a `Job` model with properties for the operation results         (`additionResult`, `subtractionResult`, etc.).
+  - Saves results to the database.
 
 `jobRoutes.ts`
 * Purpose: Defines the routes for handling job computations.
 * Key Functions:
-- Handles the `/compute` endpoint to initiate the job processing.
+  - Handles the `/compute` endpoint to initiate the job processing.
