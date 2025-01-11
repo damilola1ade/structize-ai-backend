@@ -27,7 +27,7 @@ const io = new socketIo(server, {
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGODB_URI || "")
+  .connect(process.env.MONGODB_URL || "")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
