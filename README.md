@@ -12,8 +12,8 @@ This project provides an API for computing mathematical operations on two number
 `app.ts`
 * Purpose: Initializes and configures the Express app.
 * Key Functions:
-- Sets up middleware (JSON parsing, CORS).
-- Defines the /compute endpoint.
+  - Sets up middleware (JSON parsing, CORS).
+  - Defines the /compute endpoint.
 
 `jobService.ts`
 * Purpose: Contains the logic for processing the jobs and emitting results using Socket.io.
